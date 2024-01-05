@@ -29,13 +29,14 @@ jobs:
           aws-region: ap-south-1
 
       - name: Deploy to S3 bucket folder
-        uses: aws-actions/aws-s3-deploy@v1
+        uses: aws-actions/aws-s3-deploy@v3
         with:
           args: --acl public-read --exclude '*.md' --include '*.html' --delete
           bucket: my-bucket-aws-cf
           folder: aws-cf
           aws-access-key-id: ${{ secrets.ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.ACCESS_KEY_SECRET }}
+
 
 
       # Deploy to AWS CloudFormation
